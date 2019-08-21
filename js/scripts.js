@@ -33,6 +33,17 @@ $(document).ready(function() {
       return indexMarker;
     }
 
+    function transformer(word, slicer) {
+      characters = word.split('');
+      var firstSegment = word.slice(0, slicer);
+      var secondSegment = word.slice(slicer);
+      if ((vowelChecker(characters[0]) === true) && (characters[0] !== "y" )) {
+        return secondSegment + firstSegment.toUpperCase() + "way";
+      } else {
+        return secondSegment + firstSegment.toUpperCase() + "ay";
+      }
+    }
+
     function determinator(word) {
       characters = word.split('');
       var firstLetter = characters[0];
@@ -41,7 +52,7 @@ $(document).ready(function() {
       if (firstLetter === "y") {
         return transformer(word, 0);
       } else if ((characters[slicer] === "u") && (characters[slicer - 1] === "q")) {
-        return transformer(word, slicer+1);
+        return transformer(word, slicer + 1);
       } else if (vowelChecker(firstLetter) === true) {
         return transformer(word, 0);
       } else {
@@ -55,17 +66,5 @@ $(document).ready(function() {
       output = determinator(word);
       $(".display").append(output + " ");
     });
-
-
-
-    // function phraseCruncher(word) {
-    //   console.log(userInput);
-    //   userInput.forEach(function(word) {
-    //
-    //     //
-    //   });
-    // }
-
-
   });
 });
