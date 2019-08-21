@@ -16,20 +16,34 @@ $(document).ready(function() {
       }
     }
 
+    function vowelLocator(word) {
+      var array = [];
+      characters = word.split('');
+      characters.forEach(function(character) {
+        if (vowelChecker(character) === true) {
+          array.push(true);
+        } else if (vowelChecker(character) === false) {
+          array.push(false);
+        };
+      });
+      indexMarker = array.indexOf(true);
+      return indexMarker;
+    }
 
-
+    //processor for word that starts with vowels
     function vowelWord(word) {
       return (word + "way");
     }
-
+    //processor for word that starts with consonants
     function consonantWord(word, characters) {
-      console.log()
       characters = word.split('');
-      var firstLetter = word.slice(0, 1);
-      var truncated = word.slice(1);
-      return truncated + firstLetter + "ay";
+      chunk = vowelLocator(word);
+      var firstSegment = word.slice(0, chunk);
+      var secondSegment = word.slice(chunk);
+      return secondSegment + firstSegment + "ay";
     }
 
+    //processor for determining which function to call for a word
     function wordCruncher(word) {
       characters = word.split('');
       var firstLetter = characters[0];
@@ -40,8 +54,8 @@ $(document).ready(function() {
       }
     }
 
-    var output = vowelLocator(userInput)
-    // var output = wordCruncher(userInput);
+    // var output = vowelLocator(userInput)
+    var output = wordCruncher(userInput);
     console.log(output);
   });
 });
@@ -68,18 +82,10 @@ $(document).ready(function() {
 // }
 
 
-// function vowelLocator(word) {
-//   var vowelLocation = "1";
+//processor for word that starts with consonants
+// function consonantWord(word, characters) {
 //   characters = word.split('');
-//   for (i = 0; vowelLocation < 2; i += 1) {
-//     var isVowel = vowelChecker(word);
-//     console.log(isVowel);
-//     if (isVowel === true) {
-//       vowelLocation = characters.indexOf(word)
-//       return vowelLocation;
-//       console.log(vowelLocation);
-//     } else if (isVowel === false) {
-//
-//     }
-//   }
+//   var firstLetter = word.slice(0, 1);
+//   var truncated = word.slice(1);
+//   return truncated + firstLetter + "ay";
 // }
