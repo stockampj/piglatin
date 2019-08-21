@@ -5,7 +5,7 @@
 #### By Joel Stockamp and Jaime Takikawa
 
 ## Description
-Pig Latin generator
+ This program will take phrases the user has generated and turn them into Pig Latin.
 
 
 ## Setup/Installation Requirements
