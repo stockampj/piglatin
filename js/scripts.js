@@ -50,12 +50,22 @@ $(document).ready(function() {
         var secondSegment = word.slice(firstVowel+1);
         return secondSegment + firstSegment.toUpperCase() + "ay";
       }
+
+      function yWord(word) {
+      characters = word.split('');
+      var firstSegment = word.slice(0, 1);
+      var secondSegment = word.slice(1);
+      return secondSegment + firstSegment.toUpperCase() + "ay";
+      }
+
       //processor for determining which function to call for a word
       function wordCruncher(word) {
         characters = word.split('');
         var firstLetter = characters[0];
         var firstVowel = vowelLocator(word);
-        if ((characters[firstVowel] === "u") && (characters[firstVowel-1] === "q")) {
+      if (characters[0] === "y") {
+        return yWord(word);
+      } else if ((characters[firstVowel] === "u") && (characters[firstVowel-1] === "q")) {
         return qWord(word);
       } else if (vowelChecker(firstLetter) === true) {
         return vowelWord(word);
