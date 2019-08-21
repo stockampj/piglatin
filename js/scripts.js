@@ -2,7 +2,7 @@ $(document).ready(function() {
   $("form#userInput").submit(function(event) {
     event.preventDefault();
 
-    var userInput = "arly";
+    var userInput = "rarly";
     var characters = [];
     var vowels = ["a", "e", "i", "o", "u", "y"];
 
@@ -21,7 +21,8 @@ $(document).ready(function() {
       characters = word.split('');
       var firstLetter = characters[0];
       var vowelCheck = vowels.indexOf(firstLetter);
-      if (vowelCheck > 0) {
+      console.log(vowelCheck);
+      if (vowelCheck >= 0) {
       console.log(vowelCheck);
         return true;
       } else {
