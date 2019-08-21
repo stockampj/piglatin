@@ -6,6 +6,16 @@ $(document).ready(function() {
     var characters = [];
     var vowels = ["a", "e", "i", "o", "u", "y"];
 
+    function vowelChecker(letter) {
+      var vowelCheck = vowels.indexOf(letter);
+      if (vowelCheck >= 0) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+
+
     function vowelWord(word) {
       return (word + "ay");
     }
@@ -17,20 +27,8 @@ $(document).ready(function() {
       return truncated + firstLetter + "ay";
     }
 
-    function wordCruncher(word) {
-      characters = word.split('');
-      var firstLetter = characters[0];
-      var vowelCheck = vowels.indexOf(firstLetter);
-      console.log(vowelCheck);
-      if (vowelCheck >= 0) {
-      console.log(vowelCheck);
-        return true;
-      } else {
-        return false;
-      }
-    }
 
-    var output = wordCruncher(userInput);
+    var output = vowelChecker("g");
     console.log(output);
   });
 });
@@ -39,3 +37,19 @@ $(document).ready(function() {
 // ("a" || "e" || "i" || "o" || "u" || "y")
 //
 // ((characters[0] !== "a") || (characters[0] !== "e") || (characters[0] !== "i") || (characters[0] !== "o") || (characters[0] !== "u") || (characters[0] !== "y"))
+
+
+
+
+// function wordCruncher(word) {
+//   characters = word.split('');
+//   var firstLetter = characters[0];
+//   var vowelCheck = vowels.indexOf(firstLetter);
+//   console.log(vowelCheck);
+//   if (vowelCheck >= 0) {
+//   console.log(vowelCheck);
+//     return true;
+//   } else {
+//     return false;
+//   }
+// }
