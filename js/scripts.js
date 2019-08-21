@@ -2,7 +2,8 @@ $(document).ready(function() {
   $("form#userInput").submit(function(event) {
     event.preventDefault();
 
-    var userInput = "rarly";
+    var userInput = $("#phrase").val();
+    console.log(userInput);
     var characters = [];
     var vowels = ["a", "e", "i", "o", "u", "y"];
 
@@ -15,20 +16,30 @@ $(document).ready(function() {
       }
     }
 
-
     function vowelWord(word) {
-      return (word + "ay");
+      return (word + "way");
     }
 
     function consonantWord(word, characters) {
+      console.log()
       characters = word.split('');
       var firstLetter = word.slice(0, 1);
       var truncated = word.slice(1);
       return truncated + firstLetter + "ay";
     }
 
+    function wordCruncher(word) {
+      characters = word.split('');
+      var firstLetter = characters[0];
+      if (vowelChecker(firstLetter) === true ) {
+        return vowelWord(word);
+      } else {
+        return consonantWord(word);
+      }
+    }
 
-    var output = vowelChecker("g");
+
+    var output = wordCruncher(userInput);
     console.log(output);
   });
 });
