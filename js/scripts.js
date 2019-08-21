@@ -16,6 +16,8 @@ $(document).ready(function() {
       }
     }
 
+
+
     function vowelWord(word) {
       return (word + "way");
     }
@@ -31,15 +33,15 @@ $(document).ready(function() {
     function wordCruncher(word) {
       characters = word.split('');
       var firstLetter = characters[0];
-      if (vowelChecker(firstLetter) === true ) {
+      if (vowelChecker(firstLetter) === true) {
         return vowelWord(word);
       } else {
         return consonantWord(word);
       }
     }
 
-
-    var output = wordCruncher(userInput);
+    var output = vowelLocator(userInput)
+    // var output = wordCruncher(userInput);
     console.log(output);
   });
 });
@@ -62,5 +64,22 @@ $(document).ready(function() {
 //     return true;
 //   } else {
 //     return false;
+//   }
+// }
+
+
+// function vowelLocator(word) {
+//   var vowelLocation = "1";
+//   characters = word.split('');
+//   for (i = 0; vowelLocation < 2; i += 1) {
+//     var isVowel = vowelChecker(word);
+//     console.log(isVowel);
+//     if (isVowel === true) {
+//       vowelLocation = characters.indexOf(word)
+//       return vowelLocation;
+//       console.log(vowelLocation);
+//     } else if (isVowel === false) {
+//
+//     }
 //   }
 // }
