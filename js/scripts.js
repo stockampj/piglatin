@@ -8,6 +8,7 @@ $(document).ready(function() {
     var userInput = $("#phrase").val().toLowerCase().replace(regex, "").split(" ");
     console.log(userInput);
 
+    //checks to see if a particular character is a vowel
     function vowelChecker(letter) {
       var vowelCheck = vowels.indexOf(letter);
       if (vowelCheck >= 0) {
@@ -17,6 +18,7 @@ $(document).ready(function() {
       }
     }
 
+    //checks to find the location of the first vowel in a string
     function vowelLocator(word) {
       var array = [];
       characters = word.split('');
@@ -31,54 +33,26 @@ $(document).ready(function() {
       return indexMarker;
     }
 
-    //processor for word that starts with vowels
-    function vowelWord(word) {
-      return (word + "way");
-    }
-    //processor for word that starts with consonants
-    function consonantWord(word, characters) {
-      characters = word.split('');
-      chunk = vowelLocator(word);
-      var firstSegment = word.slice(0, chunk);
-      var secondSegment = word.slice(chunk);
-      return secondSegment + firstSegment.toUpperCase() + "ay";
-    }
-    //processor for word that starts with qu
-    function qWord(word) {
-      characters = word.split('');
-      var firstVowel = vowelLocator(word);
-      var firstSegment = word.slice(0, firstVowel + 1);
-      var secondSegment = word.slice(firstVowel + 1);
-      return secondSegment + firstSegment.toUpperCase() + "ay";
-    }
-
-    function yWord(word) {
-      characters = word.split('');
-      var firstSegment = word.slice(0, 1);
-      var secondSegment = word.slice(1);
-      return secondSegment + firstSegment.toUpperCase() + "ay";
-    }
-
-    //processor for determining which function to call for a word
-    function wordCruncher(word) {
+    function determinator(word) {
       characters = word.split('');
       var firstLetter = characters[0];
-      var firstVowel = vowelLocator(word);
-      if (word === ""){
-        return ""
-      } else if (characters[0] === "y") {
-        return yWord(word);
-      } else if ((characters[firstVowel] === "u") && (characters[firstVowel - 1] === "q")) {
-        return qWord(word);
+      var slicer = vowelLocator(word);
+
+      if (firstLetter === "y") {
+        return transformer(word, 0);
+      } else if ((characters[slicer] === "u") && (characters[slicer - 1] === "q")) {
+        return transformer(word, slicer+1);
       } else if (vowelChecker(firstLetter) === true) {
-        return vowelWord(word);
+        return transformer(word, 0);
       } else {
-        return consonantWord(word);
+        return transformer(word, slicer);
       }
     }
 
+
+
     userInput.forEach(function(word) {
-      output = wordCruncher(word);
+      output = determinator(word);
       $(".display").append(output + " ");
     });
 
