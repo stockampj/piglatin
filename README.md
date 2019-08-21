@@ -1,11 +1,11 @@
-#
+# Pig Latin
 
-## Date
+## Date: August 21st, 2019
 
-#### By
+#### By Joel Stockamp and Jaime Takikawa
 
 ## Description
-
+Pig Latin generator
 
 
 ## Setup/Installation Requirements
@@ -16,8 +16,8 @@
 
 |Specs Behavior|Input|Output|
 |-|-|-|
-||
-||||||
+|For words beginning with a vowel, add "way" to the end.|apple|applway|
+|For words beginning with one or more consonants, move all of the first consecutive consonants to the end, and add "ay".|||
 ||
 
 
@@ -28,7 +28,7 @@ There are no known bugs.
 
 ## Support and contact details
 
-If there are any issues please contact:
+If there are any issues please contact: no one
 
 ## Technologies Used
 
