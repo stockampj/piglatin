@@ -17,7 +17,7 @@ Pig Latin generator
 |Specs Behavior|Input|Output|
 |-|-|-|
 |For words beginning with a vowel, add "way" to the end.|apple|applway|
-|For words beginning with one or more consonants, move all of the first consecutive consonants to the end, and add "ay".|||
+|For words beginning with one or more consonants, move all of the first consecutive consonants to the end, and add "ay".|Christmas|istmaschray|
 ||
 
 
