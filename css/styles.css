@@ -1,26 +1,75 @@
 body {
   background-color: gray;
-  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-M68lGrvWP2-eJ4Ufh9lZAD8Km_uWdXCsbC2TR7pqjcB5Ht17bQ");
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
+  font-family: cursive;
   color: white;
-  font-size: 20px;
-  text-align: center;
+
 }
 
-.content {
-  padding: 20%;
-  width: 80%;
-  justify-content: center;
+#header {
+  display: block;
+  margin: 20px;
+  background-color: #ccb6a3;
+  border: solid thick #332b25;
+  border-width: 10px;
+  height: 150px;
 }
 
 h1 {
-  text-align: center;
-}
-
-.form {
   display: block;
   margin-left: auto;
   margin-right: auto;
+  font-size: 45px;
+  font-family: cursive;
+  padding: 10px;
+  color: darkred;
+  text-align: center;
+}
+
+#intake {
+  display: block;
+  background-image: url(../img/pig.png);
+  background-size: 100%;
+  background-position: top center;
+  background-repeat: no-repeat;
+  margin-left: auto;
+  margin-right: auto;
+  width: 500px;
+  height: 300px;
+}
+
+#translation {
+  text-align: center;
+  font-size: 30px;
+}
+
+form {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 35px;
+  font-size: 18px;
+  text-align: center;
+}
+
+button {
+  margin: 10px;
+}
+
+#phrase {
+    min-width: 20%;
+    width: 60%;
+}
+
+#firstSegment {
+  color: #222247;
+  font-weight: bold;
+}
+
+#secondSegment{
+  color: #613802;
+}
+
+#ender{
+  color: #222247;
+  font-weight: bold;
 }
