@@ -47,7 +47,7 @@ $(document).ready(function() {
       var firstLetter = characters[0];
       var slicer = vowelLocator(word);
       if (firstLetter === "y") {
-        return transformer(word, 0);
+        return transformer(word, 1);
       } else if ((characters[slicer] === "u") && (characters[slicer - 1] === "q")) {
         return transformer(word, slicer + 1);
       } else if (vowelChecker(firstLetter) === true) {
@@ -59,6 +59,7 @@ $(document).ready(function() {
     //Front end logic:
     //this receives user sentences, transforms them into an array and cleans out non alpha numeric characters.
     var userInput = $("#phrase").val().toLowerCase().replace(regex, "").split(" ");
+
     //will take a phrase and send each word to the determinator. Then will return transformed word in the display
     userInput.forEach(function(word) {
       output = determinator(word);
